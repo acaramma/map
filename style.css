@@ -1,30 +1,14 @@
-#map { 
-	position: absolute; 
+#container { 
 	margin: 0; 
-	bottom: 0;
-	top: 10%; 
-	width: 100%; 
+	padding: 0; 
 }
 
-.testo_utente {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-/*input testo*/
-.text {
-  margin: 10px;
-  width: 75%;
-  padding: 20px;
-  border-top: 2px solid rgb(200,200,200);
-  border-top-style: dashed;
-  transition: all 1s;
-}
-
-#input {
-  width: 75%;
-  font-size: 25px;
-  background: transparent;
-  border: none;
+#map {
+	position: absolute; 
+	margin-top: 10%; 
+	width: 100%;
+	height: 50%;
+	top: 0;
+	bottom: 0; 
+	left: 0;
 }
