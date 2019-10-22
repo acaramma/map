@@ -6,7 +6,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 		container: 'map',
 		style: 'mapbox://styles/mapbox/streets-v11',
 		center: [lng, lat],
-		zoom: 15
+		zoom: 14
 	});
 
 	map.addControl(new MapboxGeocoder({
@@ -33,7 +33,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 					"features": [{
 						"type": "Feature",
 						"properties": {
-							"description": "<strong>Make it Mount Pleasant</strong><p>is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>",
+							"description": "<strong>One More Light</strong><p>Who cares if one more light goes out? In a sky of a million stars, It flickers, flickers, Who cares when someone's time runs out?, If a moment is all we are, We're quicker, quicker, Who cares if one more light goes out? Well I do.</p>",
 							"icon": "marker"
 						},
 						"geometry": {
@@ -43,7 +43,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 					}, {
 						"type": "Feature",
 						"properties": {
-							"description": "<strong>Mad Men Season Five Finale Watch Party</strong><p>Head to Lounge 201 (201 Massachusetts Avenue NE) Sunday for a Mad Men Season Five Finale Watch Party, complete with 60s costume contest, Mad Men trivia, and retro food and drink. 8:00-11:00 p.m. $10 general admission, $20 admission and two hour open bar.</p>",
+							"description": "<strong>Sharp Edges</strong><p>Sharp edges have consequences, I guess that I had to find out for myself, Sharp edges have consequences, Now every scar is a story I can tell.</p>",
 							"icon": "marker"
 						},
 						"geometry": {
@@ -53,7 +53,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 					}, {
 						"type": "Feature",
 						"properties": {
-							"description": "<strong>Big Backyard Beach Bash and Wine Fest</strong><p>EatBar (2761 Washington Boulevard Arlington VA) is throwing a Big Backyard Beach Bash and Wine Fest on Saturday, serving up conch fritters, fish tacos and crab sliders, and Red Apron hot dogs. 12:00-3:00 p.m. $25.grill hot dogs.</p>",
+							"description": "<strong>Battle Symphony</strong><p>I hear my battle symphony, All the world in front of me, If my armor breaks, I'll fuse it back together, Battle symphony, Please just don't give up on me, And my eyes are wide awake.</p>",
 							"icon": "marker"
 						},
 						"geometry": {
@@ -89,5 +89,36 @@ navigator.geolocation.getCurrentPosition(function(position) {
 		map.on('mouseleave', 'places', function () {
 			map.getCanvas().style.cursor = '';
 		});
-	});
+
+		map.addSource("source_circle", {
+        	"type": "geojson",
+        	"data": {
+          		"type": "FeatureCollection",
+          		"features": [{
+            		"type": "Feature",
+            		"geometry": {
+              			"type": "Point",
+              			"coordinates": [lng, lat]
+            		}
+          		}]
+        	}
+    	});
+
+      	map.addLayer({
+        	"id": "circle",
+        	"type": "circle",
+        	"source": "source_circle",
+        	"paint": {
+          		"circle-radius": {
+            		stops: [
+              			[3, 1],
+              			[15, 500]
+            		],
+            		base: 2
+          		},
+          		"circle-color": "blue",
+          		"circle-opacity": 0.2
+        	}
+      	});
+    });
 });
