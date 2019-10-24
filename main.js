@@ -43,48 +43,36 @@ navigator.geolocation.getCurrentPosition(function(position) {
 		.addTo(map);
 
 		//cerchio
-		/*map.addSource("source_circle", {
-        	"type": "geojson",
-        	"data": {
-          		"type": "FeatureCollection",
-          		"features": [{
-            		"type": "Feature",
-            		"geometry": {
-              			"type": "Point",
-              			"coordinates": [lng, lat]
-            		}
-          		}]
-        	}
+		map.addSource("source_circle", {
+				"type": "geojson",
+	        	"data": {	        		
+	          		"type": "FeatureCollection",
+	          		"features": [{
+	            		"type": "Feature",
+	            		"geometry": {
+	              			"type": "Point",
+	              			"coordinates": [lng, lat]
+	            		}
+	          		}]
+	        	}
     	});
 
-      	map.addLayer({
-        	"id": "circle",
-        	"type": "circle",
-        	"source": "source_circle",
-        	"paint": {
-          		"circle-radius": {
-            		stops: [
-              			[3, 1],
-              			[15, 250]
-            		],
-            		base: 2
-          		},
-          		"circle-color": "blue",
-          		"circle-opacity": 0.2
-        	}
-      	});*/
-      	var source = JSON.parse(source_circle)
-      	var parse_l = JSON.parse(source_circle).length
-      	for (var i = 0; i < 8; i++){
-      		var source_parse = source[i];
-      		map.addSource(source_parse);
-      	}
+      	map.addLayer({        		
+      			"id":"circle",
+	        	"type": "circle",
+	        	"source": "source_circle",
+	        	"paint": {
+	          		"circle-radius": {
+	            		stops: [
+	              			[3, 1],
+	              			[15, 250]
+	            		],
+	            		base: 2
+	          		},
+	          		"circle-color": "blue",
+	          		"circle-opacity": 0.2
+	        	}
 
-      	var cerchio = JSON.parse(circle)
-      	var parse_lu = JSON.parse(circle).length
-      	for (var i = 0; i < 9; i++){
-      		var circle_parse = cerchio[i];
-      		map.addLayer(circle_parse);
-      	}
+      	});
     });
 });
