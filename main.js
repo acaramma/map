@@ -43,7 +43,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 		.addTo(map);
 
 		//cerchio
-		map.addSource("source_circle", {
+		/*map.addSource("source_circle", {
         	"type": "geojson",
         	"data": {
           		"type": "FeatureCollection",
@@ -72,6 +72,21 @@ navigator.geolocation.getCurrentPosition(function(position) {
           		"circle-color": "blue",
           		"circle-opacity": 0.2
         	}
-      	});
+      	});*/
+      	var string = JSON.stringify(source_circle);
+      	//var source = JSON.parse(source_circle)
+      	//var parse_l = JSON.parse(source_circle).length
+      	for (var i = 0; i < 8; i++){
+      		var source_parse = string[i];
+      		map.addSource(source_parse);
+      	}
+
+      	var stringcer = JSON.stringify(circle);
+      	//var cerchio = JSON.parse(circle)
+      	//var parse_lu = JSON.parse(circle).length
+      	for (var i = 0; i < 9; i++){
+      		var circle_parse = stringcer[i];
+      		map.addLayer(circle_parse);
+      	}
     });
 });

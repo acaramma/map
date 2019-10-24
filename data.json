@@ -1,27 +1,3 @@
-"source_circle" = {
-	"type": "geojson",
-    "data": {
-    	"type": "FeatureCollection",
-        "features": [{
-        	"type": "Feature",
-            "geometry": {
-              	"type": "Point",
-              	"coordinates": ["lng", "lat"]
-            }
-        }]
-    }
-}
+source_circle = {"type": "geojson", "data": { "type": "FeatureCollection", "features": [{ "type": "Feature", "geometry": { "type": "Point", "coordinates": ["lng", "lat"] } }] } }
 
-"circle" = { 
-	"id": "circle", 
-	"type": "circle", 
-	"source": "source_circle",
-	"paint": {
-        "circle-radius": {
-            "stops": [[3, 1], [15, 250]],
-            "base": 2
-        },
-    "circle-color": "blue",
-    "circle-opacity": 0.2
-	}
-}
+circle = {"id": "circle", "type": "circle", "source": "source_circle", "paint": { "circle-radius": { "stops": [[3, 1], [15, 250]], "base": 2 }, "circle-color": "blue", "circle-opacity": 0.2 } }
