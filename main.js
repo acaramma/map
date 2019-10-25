@@ -23,28 +23,31 @@ navigator.geolocation.getCurrentPosition(function(position) {
 	}));
 
 	map.once('load', function () {
+		var testo = JSON.stringify(testi.testo1);
 		//marker
 		new mapboxgl.Marker()
 		.setLngLat([9.144366, 45.398647])
 		.setPopup(new mapboxgl.Popup({ offset: 25 })
-    		.setHTML("<strong>Battle Symphony</strong><p>I hear my battle symphony, All the world in front of me, If my armor breaks, I\'ll fuse it back together, Battle symphony, Please just don\'t give up on me, And my eyes are wide awake.</p>"))
+    	.setHTML(testo))
 		.addTo(map);
 
+		testo = JSON.stringify(testi.testo2);
 		new mapboxgl.Marker()
 		.setLngLat([9.148171, 45.399315])
 		.setPopup(new mapboxgl.Popup({ offset: 25 })
-    		.setHTML("<strong>Sharp Edges</strong><p>Sharp edges have consequences, I guess that I had to find out for myself, Sharp edges have consequences, Now every scar is a story I can tell.</p>"))
+    	.setHTML(testo))
 		.addTo(map);
 
+		testo = JSON.stringify(testi.testo3);
 		new mapboxgl.Marker()
 		.setLngLat([9.147715, 45.397865])
 		.setPopup(new mapboxgl.Popup({ offset: 25 })
-    		.setHTML("<strong>One More Light</strong><p>Who cares if one more light goes out? In a sky of a million stars, It flickers, flickers, Who cares when someone's time runs out?, If a moment is all we are, We're quicker, quicker, Who cares if one more light goes out? Well I do.</p>"))
+    	.setHTML(testo))
 		.addTo(map);
 
 		//cerchio
 		map.addSource("source_circle", {
-				"type": "geojson",
+			"type": "geojson",
 	        	"data": {	        		
 	          		"type": "FeatureCollection",
 	          		"features": [{
@@ -58,21 +61,20 @@ navigator.geolocation.getCurrentPosition(function(position) {
     	});
 
       	map.addLayer({        		
-      			"id":"circle",
-	        	"type": "circle",
-	        	"source": "source_circle",
-	        	"paint": {
-	          		"circle-radius": {
-	            		stops: [
-	              			[3, 1],
-	              			[15, 250]
-	            		],
-	            		base: 2
-	          		},
-	          		"circle-color": "blue",
-	          		"circle-opacity": 0.2
-	        	}
-
+  			"id":"circle",
+        	"type": "circle",
+        	"source": "source_circle",
+        	"paint": {
+          		"circle-radius": {
+            		stops: [
+              			[3, 1],
+              			[15, 250]
+            		],
+            		base: 2
+          		},
+          		"circle-color": "blue",
+          		"circle-opacity": 0.2
+        	}
       	});
     });
 });
