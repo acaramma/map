@@ -23,26 +23,33 @@ navigator.geolocation.getCurrentPosition(function(position) {
 	}));
 
 	map.once('load', function () {
-		var testo = JSON.stringify(testi.testo1);
 		//marker
+		var descrizione = JSON.stringify(descrizioni.descrizione1);
 		new mapboxgl.Marker()
 		.setLngLat([9.144366, 45.398647])
 		.setPopup(new mapboxgl.Popup({ offset: 25 })
-    	.setHTML(testo))
+    	.setHTML(descrizione))
 		.addTo(map);
 
-		testo = JSON.stringify(testi.testo2);
+		descrizione = JSON.stringify(descrizioni.descrizione2);
 		new mapboxgl.Marker()
 		.setLngLat([9.148171, 45.399315])
 		.setPopup(new mapboxgl.Popup({ offset: 25 })
-    	.setHTML(testo))
+    	.setHTML(descrizione))
 		.addTo(map);
 
-		testo = JSON.stringify(testi.testo3);
+		descrizione = JSON.stringify(descrizioni.descrizione3);
 		new mapboxgl.Marker()
 		.setLngLat([9.147715, 45.397865])
 		.setPopup(new mapboxgl.Popup({ offset: 25 })
-    	.setHTML(testo))
+    	.setHTML(descrizione))
+		.addTo(map);
+
+		descrizione = JSON.stringify(descrizioni.descrizione4);
+		new mapboxgl.Marker()
+		.setLngLat([9.149401, 45.456881])
+		.setPopup(new mapboxgl.Popup({ offset: 25 })
+    	.setHTML(descrizione))
 		.addTo(map);
 
 		//cerchio
